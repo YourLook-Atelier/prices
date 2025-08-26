@@ -12,6 +12,25 @@
             font-family: 'Rubik', sans-serif;
         }
 
+        .button-container {
+            display: flex;
+            gap: 20px; /* Отступ между кнопками */
+        }
+        
+        .button {
+            width: 50px; /* Ширина кнопки */
+            height: 50px; /* Высота кнопки */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none; /* Убираем подчеркивание */
+        }
+        
+        .button svg {
+            width: 100%;
+            height: 100%;
+        }
+        
         @media (min-width: 1024px) {
 
             .main-page,
@@ -117,10 +136,18 @@
     </div>
     
     <div class="main-page p-6">
-        <iframe src="https://yandex.ru/sprav/widget/rating-badge/75987897976?type=rating&theme=dark" width="150" height="50" frameborder="0"></iframe>
-        <div class="space-x-2">              
-            <a href="https://www.w3docs.com/" class="button">1.svg</a>    
+        <div class="button-container">
+            <a href="https://t.me/yourlook_atelier" class="button" target="_blank" title="Telegram">
+                <img src="1.svg" alt="Telegram">
+            </a>
+            <a href="https://wa.me/+79163931127" class="button" target="_blank" title="WhatsApp">
+                <img src="2.svg" alt="WhatsApp">
+            </a>
+            <a href="tel:+79163931127" class="button" title="Позвонить">
+                <img src="3.svg" alt="Телефон">
+            </a>
         </div>
+        <iframe src="https://yandex.ru/sprav/widget/rating-badge/75987897976?type=rating&theme=dark" width="150" height="50" frameborder="0"></iframe>
     </div>
 
     <div class="modal-overlay fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm opacity-0 transition-opacity duration-500 pointer-events-none z-[110]"
