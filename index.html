@@ -176,12 +176,16 @@
         const modalClose = document.getElementById('modalClose');
 
         categoryButtons.forEach(button => {
-            button.addEventListener('click', () => {
+            button.addEventListener('click', async () => {
                 const category = button.getAttribute('data-category');
                 modalTitle.textContent = category;
-                loadServices(category);
+                
+                // Загружаем данные ПЕРЕД открытием модального окна
+                modalContent.innerHTML = '<p>Загрузка...</p>';
+                await loadServices(category);
+                
                 modalOverlay.classList.remove('opacity-0', 'pointer-events-none');
-                document.body.classList.add('overflow-hidden'); // Добавьте здесь
+                document.body.classList.add('overflow-hidden');
                 setTimeout(() => {
                     modal.classList.remove('translate-y-full');
                 }, 10);
@@ -228,6 +232,7 @@
                 console.error('Ошибка загрузки услуг:', error);
                 modalContent.innerHTML = '<p>Ошибка загрузки данных</p>';
             }
+            return; // добавь в самом конце
         }
     </script>
 </body>
